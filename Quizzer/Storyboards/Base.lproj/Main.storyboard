@@ -86,7 +86,7 @@
         <!--Вопрос №-->
         <scene sceneID="fTq-gN-Ctb">
             <objects>
-                <viewController id="75d-Cl-JSS" sceneMemberID="viewController">
+                <viewController id="75d-Cl-JSS" customClass="QuestionsViewController" customModule="Quizzer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Onj-L6-fnd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +127,9 @@
                                         <rect key="frame" x="0.0" y="86" width="288" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="rangedAnswerButtonPressed" destination="75d-Cl-JSS" eventType="touchUpInside" id="ZhM-7s-QrB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -193,6 +196,9 @@
                                         <rect key="frame" x="0.0" y="188" width="288" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Ответить"/>
+                                        <connections>
+                                            <action selector="multipleAnswerButtonPressed" destination="75d-Cl-JSS" eventType="touchUpInside" id="MXx-8E-9C1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -202,6 +208,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1i-VA-cr0">
                                         <rect key="frame" x="121" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="75d-Cl-JSS" eventType="touchUpInside" id="2Jc-Qr-UZL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFy-q2-o4J">
                                         <rect key="frame" x="121" y="46" width="46" height="30"/>
@@ -255,6 +264,26 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="multipleStackView" destination="AiJ-yu-j68" id="EzT-Je-qQ0"/>
+                        <outlet property="progressSlider" destination="eXg-Wp-tSX" id="UDD-Cy-xsp"/>
+                        <outlet property="questionLabel" destination="71O-fB-Ppl" id="kX9-2M-4Wc"/>
+                        <outlet property="questionProgressView" destination="dkt-PD-RqV" id="y83-Iu-Eh4"/>
+                        <outlet property="rangedStackView" destination="QZe-1q-QE9" id="YaG-HJ-bMw"/>
+                        <outlet property="singleStackView" destination="5ao-5q-sFf" id="xnC-Bt-RFJ"/>
+                        <outletCollection property="singleButtons" destination="c1i-VA-cr0" collectionClass="NSMutableArray" id="6oo-C5-h8w"/>
+                        <outletCollection property="singleButtons" destination="sFy-q2-o4J" collectionClass="NSMutableArray" id="Vef-Wm-fzf"/>
+                        <outletCollection property="singleButtons" destination="Lga-4T-P2j" collectionClass="NSMutableArray" id="2z8-ZJ-eM3"/>
+                        <outletCollection property="singleButtons" destination="YYq-F3-uem" collectionClass="NSMutableArray" id="Aww-DP-cbn"/>
+                        <outletCollection property="multipleLabels" destination="l1x-EI-VUE" collectionClass="NSMutableArray" id="Grp-b5-mT5"/>
+                        <outletCollection property="multipleLabels" destination="neR-FF-34F" collectionClass="NSMutableArray" id="FFN-KK-Mpi"/>
+                        <outletCollection property="multipleLabels" destination="1x4-LM-rw9" collectionClass="NSMutableArray" id="jhN-Lo-hry"/>
+                        <outletCollection property="multipleLabels" destination="p78-4c-p2D" collectionClass="NSMutableArray" id="9QB-i9-3w6"/>
+                        <outletCollection property="multipleSwitches" destination="zRo-vR-bwA" collectionClass="NSMutableArray" id="iC2-2k-1y8"/>
+                        <outletCollection property="multipleSwitches" destination="Tnw-vU-LAq" collectionClass="NSMutableArray" id="IFA-4o-5HJ"/>
+                        <outletCollection property="multipleSwitches" destination="zjd-xO-mkA" collectionClass="NSMutableArray" id="Ez9-vb-JUC"/>
+                        <outletCollection property="multipleSwitches" destination="92p-PD-ScB" collectionClass="NSMutableArray" id="8jX-Fo-KU3"/>
+                        <outletCollection property="rangedLabels" destination="bnt-6m-2xx" collectionClass="NSMutableArray" id="bth-RF-pIB"/>
+                        <outletCollection property="rangedLabels" destination="f10-gf-WBL" collectionClass="NSMutableArray" id="N2a-aM-h1e"/>
                         <segue destination="Tln-Pq-RQk" kind="show" identifier="showResult" id="X2F-2T-bFx"/>
                     </connections>
                 </viewController>
@@ -265,7 +294,7 @@
         <!--Результаты-->
         <scene sceneID="J51-fB-Suj">
             <objects>
-                <viewController id="Tln-Pq-RQk" sceneMemberID="viewController">
+                <viewController id="Tln-Pq-RQk" customClass="ResultsViewController" customModule="Quizzer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFN-iU-blK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

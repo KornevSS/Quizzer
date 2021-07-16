@@ -5,7 +5,7 @@
 //  Created by Сергей Корнев on 10.07.2021.
 //
 
-enum ResponseType {
+enum AnswerType {
     case single
     case multiple
     case ranged
@@ -13,7 +13,7 @@ enum ResponseType {
 
 struct Question {
     let text: String
-    let type: ResponseType
+    let type: AnswerType
     let answers: [Answer]
     
 }
