@@ -25,6 +25,9 @@ class QuestionsViewController: UIViewController {
     
     @IBOutlet var rangedLabels: [UILabel]!
     
+    private let questions = Question.getQuestions()
+    private var questionIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -42,5 +45,52 @@ class QuestionsViewController: UIViewController {
 
 // MARK: - Private methods
 
-extension QuestionsViewController [
+extension QuestionsViewController {
+    
+    private func updateUI() {
+        for stackView in [singleStackView, multipleStackView, rangedStackView] {
+            stackView?.isHidden = true
+        }
+        let currenQuestion = questions[questionIndex]
+        questionLabel.text = currenQuestion.text
+        let totalProgress = Float(questionIndex) / Float(questions.count)
+        questionProgressView.setProgress(totalProgress, animated: true)
+        title = "Вопрос №\(questionIndex + 1) из \(questions.count)"
+        showCurrentAnswers(for: currenQuestion.type)
+    }
+    
+    private func showCurrentAnswers(for type: AnswerType) {
+        switch type {
+        
+        case .single:
+            break
+        case .multiple:
+            break
+        case .ranged:
+            break
+        }
+    }
+    
+    // Option + CMD + / - Документрование кода!
+    
+    /// Show single stack view
+    ///
+    /// - Parameter answers: array with answers
+    ///
+    /// Show single stack view with answers for current question
+    
+    private func showSingleStackView(with answers: [Answer]) {
+        singleStackView.isHidden = false
+        for (button, answer) in zip(singleButtons, answers) {
+            button.setTitle(answer.text, for: .normal)
+        }
+    }
+    
+    private func showMultipleStackView(with answers: [Answer]) {
+        multipleStackView.isHidden = false
+    }
+    
+    private func showRangedStackView(with answers: [Answer]) {
+        rangedStackView.isHidden = false
+    }
 }
